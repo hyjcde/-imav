@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>航拍人物检索 - 汇报</title>
+<style>
+ body{font-family:"Times New Roman", Times, serif; margin:20px; background:none}
+ h1{margin:6px 0 16px}
+ .grid{display:flex; flex-wrap:wrap; gap:12px}
+ .card{border:1px solid #ddd; padding:8px}
+ img{max-width:520px; height:auto; display:block}
+ .name{color:#333; font-size:12px; margin-top:4px}
+ pre{background:#f8f8f8; padding:10px; white-space:pre-wrap}
+</style>
+</head>
+<body>
+<h1>航拍人物检索系统 - 阶段性汇报</h1>
+<p>文档版请见 <code>report.md</code>，下方为关键结果图。</p>
+
+<h2>优化后结果（形状先验+跟踪融合）</h2>
+<div class="grid">
+  <div class="card"><img src="frame_1050_enhanced.jpg"><div class="name">frame_1050 - 增强检测（45人总计）</div></div>
+  <div class="card"><img src="rank_01_enhanced.jpg"><div class="name">Top1 - 融合分数（CLIP+颜色+形状+跟踪）</div></div>
+  <div class="card"><img src="rank_01_crop_enhanced.jpg"><div class="name">Top1 裁剪 - 最佳匹配</div></div>
+</div>
+
+<h2>全体人员合成图（基础版本）</h2>
+<div class="grid">
+  <div class="card"><img src="frame_1050_all_scores.jpg"><div class="name">frame_1050_all_scores.jpg</div></div>
+  <div class="card"><img src="frame_2625_all_scores.jpg"><div class="name">frame_2625_all_scores.jpg</div></div>
+  <div class="card"><img src="frame_4725_all_scores.jpg"><div class="name">frame_4725_all_scores.jpg</div></div>
+</div>
+<h2>Top-N 示例（整帧+裁剪）</h2>
+<div class="grid">
+  <div class="card"><img src="rank_01_frame_4725_fused_0.768.jpg"><div class="name">Top1 整帧</div></div>
+  <div class="card"><img src="rank_01_crop_fused_0.768.jpg"><div class="name">Top1 裁剪</div></div>
+  <div class="card"><img src="rank_02_frame_5250_fused_0.761.jpg"><div class="name">Top2 整帧</div></div>
+  <div class="card"><img src="rank_02_crop_fused_0.761.jpg"><div class="name">Top2 裁剪</div></div>
+  <div class="card"><img src="rank_03_frame_4200_fused_0.537.jpg"><div class="name">Top3 整帧</div></div>
+  <div class="card"><img src="rank_03_crop_fused_0.537.jpg"><div class="name">Top3 裁剪</div></div>
+</div>
+<h2>全体检测统计摘要</h2>
+<div class="grid">
+  <div class="card"><img src="detection_summary.png"><div class="name">detection_summary.png</div></div>
+</div>
+</body>
+</html> 
