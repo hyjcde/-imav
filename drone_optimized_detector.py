@@ -207,7 +207,7 @@ class DroneOptimizedPersonFinder:
                                 all_crops.append(person_crop)
         if all_boxes:
             indices = cv2.dnn.NMSBoxes(all_boxes, all_scores,
-                                       self.confidence_threshold,
+                self.confidence_threshold, 
                                        self.nms_threshold)
             if len(indices) > 0:
                 for i in indices.flatten():
@@ -353,12 +353,12 @@ class DroneOptimizedPersonFinder:
                 for j, line in enumerate(label_lines):
                     label_size = cv2.getTextSize(line, cv2.FONT_HERSHEY_SIMPLEX, 0.5, 1)[0]
                     cv2.rectangle(display_frame, 
-                                  (x1, y1 - 20 - j*15), 
-                                  (x1 + label_size[0], y1 - 5 - j*15), 
-                                  (0, 255, 0), -1)
+                                (x1, y1 - 20 - j*15), 
+                                (x1 + label_size[0], y1 - 5 - j*15), 
+                                (0, 255, 0), -1)
                     cv2.putText(display_frame, line, 
-                                (x1, y1 - 10 - j*15), 
-                                cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 0, 0), 1)
+                              (x1, y1 - 10 - j*15), 
+                              cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 0, 0), 1)
                 output_filename = f"person_{i+1:03d}_frame_{frame_number}_conf_{confidence:.3f}.jpg"
                 output_path = os.path.join(output_dir, output_filename)
                 cv2.imwrite(output_path, display_frame)

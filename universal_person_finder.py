@@ -193,7 +193,7 @@ class UniversalPersonFinder:
         """检测帧中的所有人物"""
         detections = []
         original_height, original_width = frame.shape[:2]
-
+        
         # 先进行切片推理，提升小目标召回（航拍友好）
         tiled_boxes, tiled_scores = run_tiled_detection(
             self.detector,
@@ -262,7 +262,7 @@ class UniversalPersonFinder:
                                 all_crops.append(person_crop)
         if all_boxes:
             indices = cv2.dnn.NMSBoxes(all_boxes, all_scores,
-                                       self.confidence_threshold,
+                self.confidence_threshold, 
                                        self.nms_threshold)
             if len(indices) > 0:
                 for i in indices.flatten():

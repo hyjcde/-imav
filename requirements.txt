@@ -11,4 +11,7 @@ scikit-learn>=1.1.0
 colorama>=0.4.5
 # Optional CLIP backends:
 # openai-clip
-# open-clip-torch 
+# open-clip-torch
+# Optional DINO backends:
+# transformers (for DINO-DETR)
+# timm (for DINOv2) 
